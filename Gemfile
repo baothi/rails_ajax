@@ -59,3 +59,5 @@ gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'coffee-rails', '~> 5.0'
+gem "paperclip", "~> 6.0.0"
+gem 'jasny-bootstrap-rails', '~> 3.1', '>= 3.1.3'
