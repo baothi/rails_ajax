@@ -8,6 +8,11 @@
   <table class="table">
       <%= render @contacts %>
   </table>
+  <% if @contacts.blank? %>
+    <div class="alert alert-warning">
+      <strong>Record not found</strong>>
+    </div>
+  <% end %>
 </div>
 
 <div class="text-center">
