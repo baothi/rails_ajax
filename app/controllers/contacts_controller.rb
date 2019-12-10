@@ -19,7 +19,7 @@ class ContactsController < ApplicationController
       @contact = Contact.new(contact_params)
       if @contact.save
           flash[:success] = "Contact was successfully created."
-          redirect_to contacts_path
+          redirect_to contacts_path(previous_query_string)
       else
           render 'new'
       end
@@ -31,7 +31,7 @@ class ContactsController < ApplicationController
   def update
       if @contact.update(contact_params)
           flash[:success] = "Contact was successfully updated."
-          redirect_to contacts_path
+          redirect_to contacts_path(previous_query_string)
       else
           render 'edit'
       end
@@ -51,5 +51,9 @@ class ContactsController < ApplicationController
 
   def find_contact
     @contact = Contact.find(params[:id])
+  end
+
+  def previous_query_string
+    session[:selected_group_id] ? {group_id: session[:selected_group_id]} : {}
   end
 end
