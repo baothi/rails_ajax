@@ -7,6 +7,12 @@ Rails.application.routes.draw do
    # patch 'contacts/:id/update', to: 'contacts#update', as: 'update_contact'
    # delete 'contacts/:id/destroy', to: 'contacts#destroy', as: 'destroy_contact'
    # resources :contacts, only: [:index, :edit, :update, :destroy]
-   resources :contacts, except: [:show]
+   resources :contacts, except: [:show] do
+     # collection do
+       get 'autocomplete', on: :collection
+     # end
+   end
+   post '/groups', to: 'groups#create'
+   # get '/contacts/autocomplete', to: 'contacts#autocomplete'
    root 'contacts#index'
 end

@@ -13,6 +13,22 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require jquery-ui/core
+//= require jquery-ui/widget
+//= require jquery-ui/position
+//= require jquery-ui/widgets/autocomplete
+//= require jquery-ui/widgets/menu
 //= require jasny-bootstrap.min
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  $('#term').autocomplete({
+  	source: "/contacts/autocomplete",
+  	minLegth: 3,
+  	select: function(event, ui){
+  		$('#term').val(ui.item.value);
+  		$(this).closest('form').submit();
+  	}
+  })
+})
